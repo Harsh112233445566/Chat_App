@@ -1,6 +1,3 @@
-Here’s a `README.md` template for your MERN stack chat application, which is Dockerized. You can fill in the necessary fields with specific details about your project.
-
----
 
 # MERN Chat App
 
@@ -15,7 +12,6 @@ A real-time chat application built using the **MERN** stack (MongoDB, Express.js
 - [Docker Setup](#docker-setup)
 - [Usage](#usage)
 - [Technologies](#technologies)
-- [License](#license)
 
 ---
 
@@ -29,8 +25,6 @@ The MERN Chat App is a real-time messaging platform where users can sign up, log
 - Dockerized for containerized deployment
 - MongoDB as the NoSQL database
 - Profile picture/avatar support
-- Online status tracking
-- Typing indicator in chats
 
 ---
 
@@ -41,7 +35,6 @@ The MERN Chat App is a real-time messaging platform where users can sign up, log
 - **Socket.IO Integration**: Seamless two-way communication between the client and server for instant message delivery.
 - **Avatar Setup**: Users can set up a profile picture after signing up.
 - **Docker Support**: Both backend and frontend are Dockerized for simple and scalable deployment.
-- **Responsive Design**: Optimized for both desktop and mobile usage.
   
 ---
 
@@ -58,8 +51,7 @@ Make sure you have the following installed:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/mern-chat-app.git
-cd mern-chat-app
+https://github.com/Harsh112233445566/Chat_app.git
 ```
 
 ### Install Dependencies
@@ -67,14 +59,14 @@ cd mern-chat-app
 For backend (Node.js/Express):
 
 ```bash
-cd backend
+cd public/chatapp
 npm install
 ```
 
 For frontend (React):
 
 ```bash
-cd ../frontend
+cd server
 npm install
 ```
 
@@ -91,17 +83,21 @@ Create a `.env` file in the root directories of both backend and frontend to sto
 ### Backend `.env`:
 
 ```bash
-PORT=5000
-MONGO_URI=your_mongo_connection_string
-JWT_SECRET=your_jwt_secret_key
-SOCKET_PORT=5001
+PORT = 3002
+MONGO_URI = "mongodb://localhost:27017/school"
 ```
 
 ### Frontend `.env`:
 
 ```bash
-REACT_APP_API_URL=http://localhost:5000
-REACT_APP_SOCKET_URL=http://localhost:5001
+host = 'http://localhost:3002';
+register_route = `${host}/api/auth/register`;
+login_route = `${host}/api/auth/login`;
+avatar_route = `${host}/api/auth/avatar`
+chat_route = `${host}/api/auth/chat`;
+alluser = `${host}/api/auth/alluser`;
+addmsg = `${host}/api/msg/addmsg`;
+getmsg = `${host}/api/msg/getmsg`;
 ```
 
 ---
@@ -120,7 +116,7 @@ docker-compose up --build
 
 This will start:
 
-- Backend on `http://localhost:5000`
+- Backend on `http://localhost:3002`
 - Frontend on `http://localhost:3000`
 - MongoDB instance
 
@@ -149,22 +145,7 @@ After setting up the environment and starting the app:
 - **Frontend**: React.js, Styled-components, Socket.IO-client
 - **Backend**: Node.js, Express.js, Socket.IO
 - **Database**: MongoDB
-- **Authentication**: JWT (JSON Web Tokens)
 - **Real-Time Communication**: Socket.IO
 - **Docker**: Docker and Docker Compose for containerized services
 
 ---
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to fill in details like:
-
-- Your project URL (e.g., GitHub repo link)
-- MongoDB connection string and JWT secret (if public or for development)
-- Adjust the port numbers or environment-specific details as needed. 
-
-This template should give a good overview and make it easy for others to install and use the project.
