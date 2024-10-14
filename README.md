@@ -10,6 +10,7 @@ A real-time chat application built using the **MERN** stack (MongoDB, Express.js
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [Docker Setup](#docker-setup)
+- [Some Screenshots]
 - [Usage](#usage)
 - [Technologies](#technologies)
 
@@ -146,6 +147,22 @@ To stop the running containers, press `Ctrl+C` or run:
 ```bash
 docker-compose down
 ```
+
+---
+Here’s an additional section where you can showcase UI images in your `README.md`:
+
+---
+
+## Some Screenshots
+
+Here are some screenshots of the application's user interface.
+
+### Login Page
+<img width="1440" alt="image" src="https://github.com/user-attachments/assets/58ac1cbc-2871-40f9-9779-19581f17ab76">
+
+
+### Chat Interface
+<img width="1439" alt="image" src="https://github.com/user-attachments/assets/ee1f3cb2-b476-42df-acc1-994d9ea70031">
 
 ---
 
