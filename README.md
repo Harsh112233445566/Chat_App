@@ -107,19 +107,6 @@ PORT = 3002
 MONGO_URI = "mongodb://localhost:27017/school"
 ```
 
-### Frontend `.env`:
-
-```bash
-host = 'http://localhost:3002';
-register_route = `${host}/api/auth/register`;
-login_route = `${host}/api/auth/login`;
-avatar_route = `${host}/api/auth/avatar`
-chat_route = `${host}/api/auth/chat`;
-alluser = `${host}/api/auth/alluser`;
-addmsg = `${host}/api/msg/addmsg`;
-getmsg = `${host}/api/msg/getmsg`;
-```
-
 ---
 
 ## Docker Setup
