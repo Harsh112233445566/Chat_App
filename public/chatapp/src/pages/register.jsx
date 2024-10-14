@@ -23,7 +23,7 @@ function RegisterPage() {
                 toast.error(data.message,toastOptions);
             }
             if(data.status === true) {
-                localStorage.setItem("user",JSON.stringify(data));
+                localStorage.setItem("user",JSON.stringify(data.data));
                 navigate("/avatar");
                 toast.success(data.message,toastOptions);
             }
@@ -33,9 +33,10 @@ function RegisterPage() {
     }
     useEffect(() => {
         const user = localStorage.getItem("user");
-        if(user) {
+        if(user){
             navigate("/avatar");
         }
+
     },[])
     const toastOptions = {
         position: "top-center",
@@ -78,7 +79,7 @@ function RegisterPage() {
                 <input type="password" name="password" placeholder="Password" onChange={e => handlechange(e)} />
                 <input type="password" name="confirmPassword" placeholder="Confirm Password" onChange={e => handlechange(e)} />
                 <button type="submit">Register</button>
-                <span>Already have an account? <Link to="/">Login</Link></span>
+                <span>Already have an account? <Link to="/login">Login</Link></span>
 
             </form>
         </FormContainer>

@@ -2,6 +2,7 @@ const { set } = require('mongoose');
 const User = require('../model/usermodel');
 const bcrypt = require('bcrypt');
 
+// login controller
 module.exports.login = async (req, res,next) => {
     try{
         const {username, password} = req.body;
@@ -22,7 +23,7 @@ module.exports.login = async (req, res,next) => {
     }
 }
 
-
+// register controller
 module.exports.register = async (req, res,next) => {
     try{
         const {username, email, password} = req.body;
@@ -49,6 +50,7 @@ module.exports.register = async (req, res,next) => {
     }
 }
 
+// avatar controller
 module.exports.avatar = async (req, res,next) => {
     try{
         console.log(req.params.id)
@@ -69,13 +71,15 @@ module.exports.avatar = async (req, res,next) => {
     }
 }   
 
+// getuser controller
 module.exports.getuser = async (req, res,next) => {
     try{
         const user = await User.find({_id : {$ne:req.params.id}}).select(["email","username","profileimg","_id"]);
+        console.log(user);
         if(!user) {
             return res.json({status:false, message: "User not exists" });
         }
-        return res.json({status:true,message:"User found", data: user});
+        return res.json(user);
         
     }
     catch(err) {

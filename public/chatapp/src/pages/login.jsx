@@ -23,10 +23,15 @@ function Login() {
             if(data.status === false) {
                 toast.error(data.message,toastOptions);
             }
+            
             if(data.status === true) {
-                localStorage.setItem("user",JSON.stringify(data));
+                localStorage.setItem("user",JSON.stringify(data.data));
+                if(data.data.isProfile===true) {
+                    navigate("/chat");
+                } else {
+                    navigate("/avatar");
+                }
                 toast.error(data.message,toastOptions);
-                navigate("/chat");
             }
            
         }
@@ -41,9 +46,17 @@ function Login() {
     }
     useEffect(() => {
         const user = localStorage.getItem("user");
-        if(user) {
+        console.log(user);
+        if(user){
+        if(user.isProfile===true) {
             navigate("/chat");
         }
+        else
+        {
+            navigate("/avatar");
+        }
+        }
+       
     },[])
     const validation = () => {
         if(values.username === ""  || values.password === "" ) {

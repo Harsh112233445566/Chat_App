@@ -28,11 +28,12 @@ export default function Avatar() {
         } else {
             const user = await JSON.parse(localStorage.getItem("user"));
             console.log(user);
-            const {data} = await axios.post(`${avatar_route}/${user.data._id}`,{id: user.data._id, avatar: avatar[selected]});
+            const {data} = await axios.post(`${avatar_route}/${user._id}`,{id: user._id, avatar: avatar[selected]});
             if(data.status === true) {
                 user.isProfile = true;
                 user.profileimg = avatar[selected];
                 localStorage.setItem("user",JSON.stringify(user)); 
+                console.log(user);
                 navigate("/chat");
             }
             else {
@@ -40,25 +41,25 @@ export default function Avatar() {
             }
         }
     };
-    const getAvatar = async () => {
-    {
-        const data = [];
-         for(let i=0;i<5;i++) {
-              const response = await axios.get(api+Math.random());
-              const buffer = Buffer.from(response.data);
-              const base64 = buffer.toString("base64");
-              data.push(base64);
-         }
-            setAvatar(data);
-            setLoading(false);
-        }
-    }
+   
     useEffect(() => {
         if(!localStorage.getItem("user")) {
             navigate("/register");
         }
-        getAvatar();
-
+        const getAvatar = async () => {
+            {
+                const data = [];
+                 for(let i=0;i<5;i++) {
+                      const response = await axios.get(api+Math.random());
+                      const buffer = Buffer.from(response.data);
+                      const base64 = buffer.toString("base64");
+                      data.push(base64);
+                 }
+                    setAvatar(data);
+                    setLoading(false);
+                }
+            }
+            getAvatar();
     },[]);
 
     return (
@@ -144,8 +145,8 @@ background-size: 180% 180%;
                 object-fit: cover;
                 &:hover {
                     transition: all 0.3s;
-            transform: scale(1.1);
-            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+                    transform: scale(1.1);
+                    box-shadow: 0 0 10px rgba(0,0,0,0.3);
                 }
             }
             &.selected {
