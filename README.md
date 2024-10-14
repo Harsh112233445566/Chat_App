@@ -30,7 +30,7 @@ The MERN Chat App is a real-time messaging platform where users can sign up, log
 
 ## Features
 
-- **User Authentication**: Sign up and log in with secure JWT-based authentication.
+- **User Authentication**: Sign up and log in.
 - **Real-Time Messaging**: Chat with other users in real-time using WebSockets.
 - **Socket.IO Integration**: Seamless two-way communication between the client and server for instant message delivery.
 - **Avatar Setup**: Users can set up a profile picture after signing up.
@@ -47,6 +47,7 @@ Make sure you have the following installed:
 - [Node.js](https://nodejs.org/) (v14.x or later)
 - [Docker](https://www.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
+- [Yarn](https://yarnpkg.com/) (Optional: If you prefer Yarn over npm)
 
 ### Clone the Repository
 
@@ -56,6 +57,9 @@ https://github.com/Harsh112233445566/Chat_app.git
 
 ### Install Dependencies
 
+You can use either **npm** or **yarn** to install the required packages.
+
+#### Using npm:
 For backend (Node.js/Express):
 
 ```bash
@@ -68,6 +72,21 @@ For frontend (React):
 ```bash
 cd server
 npm install
+```
+
+#### Using Yarn:
+For backend:
+
+```bash
+cd public/chatapp
+yarn install
+```
+
+For frontend:
+
+```bash
+cd server
+yarn install
 ```
 
 ### MongoDB Setup
@@ -147,5 +166,9 @@ After setting up the environment and starting the app:
 - **Database**: MongoDB
 - **Real-Time Communication**: Socket.IO
 - **Docker**: Docker and Docker Compose for containerized services
+- **Package Management**: npm or Yarn
 
 ---
+
+Feel free to use either **npm** or **Yarn** for managing your dependencies based on your preference.
+
