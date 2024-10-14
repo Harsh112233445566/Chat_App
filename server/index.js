@@ -16,7 +16,7 @@ app.use("/api/msg", msgrouter);
 
 //configuring the database
 
-mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect("mongodb://mongodb/data", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }).then(() => {

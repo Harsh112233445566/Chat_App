@@ -1,6 +1,6 @@
 const { set } = require('mongoose');
 const User = require('../model/usermodel');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 // login controller
 module.exports.login = async (req, res,next) => {

@@ -1,0 +1,36 @@
+version: "3.7"
+
+services:
+  web:
+    container_name: chatapp
+    build: ./public/chatapp
+    ports:
+      - "3000:3000"
+    
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+    networks:
+      - mynetwork
+  backend:
+    container_name: apicontainer
+    build: ./server
+    restart: always
+    ports:
+      - "3002:3002"
+    depends_on:
+      - database
+    networks:
+      - mynetwork
+  database:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"
+    
+    networks:
+      - mynetwork
+networks:
+  mynetwork:
+    driver: bridge
